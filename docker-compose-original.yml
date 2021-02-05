@@ -1,0 +1,1721 @@
+version: "3.7"
+services:
+  brokerura_zurich_edmil_insert:
+    image: aec.cti.brokerura_zurich_edmil_insert:prod01
+    hostname: brokerura_zurich_edmil_insert
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_oi_insert_escob:
+    image: aec.cti.brokerura_oi_insert_escob:prod01
+    hostname: brokerura_oi_insert_escob
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokeruraunicred_relacionament_insert_navegacao:
+    image: aec.cti.brokerura_unicred_relacionamento_insert_navegacao:prod01
+    hostname: brokerura_unicred_relacionament_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_pnb_insert_navegacao_conta_digital:
+    image: aec.cti.brokerura_pnb_insert_navegacao_conta_digital:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_insert_navegacao_conta_digital
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pnb_contadigital:
+    image: aec.cti.brokerura_pnb_contadigital:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_contadigital
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+     
+  brokerura_zurich_tnps_insert_pesquisa:
+    image: aec.cti.brokerura_zurich_tnps_insert_pesquisa:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_zurich_tnps_insert_pesquisa
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_urba_consulta_api_ocorrencias:
+    image: aec.cti.brokerura_mrv_urba_consulta_api_ocorrencias:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_urba_consulta_api_ocorrencias
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_urba_insert_navegacao:
+    image: aec.cti.brokerura_mrv_urba_insert_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_urba_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  stix_api_criaincidente:
+    image: aec.cti.brokerura_stix_api_criaincidente:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_stix_api_criaincidente
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  stix_api_validacpf:
+    image: aec.cti.brokerura_stix_api_validacpf:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_stix_api_validacpf
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+
+  stix_insert_navegacao:
+    image: aec.cti.brokerura_stix_insert_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_stix_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  stix_insert_pesquisa:
+    image: aec.cti.brokerura_stix_insert_pesquisa:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_stix_insert_pesquisa
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokervalidadigitoscomseparador:
+    image: aec.cti.brokervalidadigitoscomseparador:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokervalidadigitoscomseparador 
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokervalidanumerotelefonedigitado:
+    image: aec.cti.brokervalidanumerotelefonedigitado:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokervalidanumerotelefonedigitado
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pnb_insert_navegacao_cob:
+    image: aec.cti.brokerura_pnb_insert_navegacao_cob:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_pnb_insert_navegacao_cob 
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  broker_api_tivea_ura_pnb_cob:
+    image: aec.cti.broker_api_tivea_ura_pnb_cob:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: broker_api_tivea_ura_pnb_cob
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pnb_verificacpfws_cob:
+    image: aec.cti.brokerura_pnb_verificacpfws_cob:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_pnb_verificacpfws_cob 
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  unicred_api_validasenha:
+    image: aec.cti.brokerura_unicred_api_validasenha:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_unicred_api_validasenha
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  unicred_api_validacartao:
+    image: aec.cti.brokerura_unicred_api_validacartao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_unicred_api_validacartao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+
+  unicred_insert_navegacao:
+    image: aec.cti.brokerura_unicred_insert_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_unicred_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  unicred_insert_pesquisa:
+    image: aec.cti.brokerura_unicred_insert_pesquisa:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_unicred_insert_pesquisa
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_localiza_insert_navegacao:
+    image: aec.cti.brokerura_localiza_insert_navegacao:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m    
+    hostname: brokerura_localiza_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"    
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  ole_cob_verifica_cobradora_cpf:
+    image: aec.cti.brokerura_ole_cob_verifica_cobradora_cpf:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_ole_cob_verifica_cobradora_cpf
+    extra_hosts:
+      - "graylog:192.168.82.26"
+      - "recuperahml.oleconsignado.com.br:10.80.0.30"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  insert_navegacao_ole_cob:
+    image: aec.cti.brokerura_insert_navegacao_ole_cob:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_insert_navegacao_ole_cob
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  caixa_insert_pesquisa:
+    image: aec.cti.brokerura_caixa_insert_pesquisa:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_caixa_insert_pesquisa
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  caixa_insert_navegacao:
+    image: aec.cti.brokerura_caixa_insert_navegacao:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_caixa_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  caixa_api_solicita_protocoloodonto:
+    image: aec.cti.brokerura_caixa_api_solicita_protocoloodonto:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_caixa_api_solicita_protocoloodonto
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  caixa_api_solicita_protocolo:
+    image: aec.cti.brokerura_caixa_api_solicita_protocolo:prod03
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_caixa_api_solicita_protocolo
+    extra_hosts:
+      - "graylog:192.168.82.26"
+      - "datapower.caixaseguros.intranet:172.16.32.52"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  caixa_api_fecha_protocolo:
+    image: aec.cti.brokerura_caixa_api_fecha_protocolo:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_caixa_api_fecha_protocolo 
+    extra_hosts:
+      - "graylog:192.168.82.26"
+      - "datapower.caixaseguros.intranet:172.16.32.52"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  pnb_insert_navegacao:
+    image: aec.cti.brokerura_pnb_insert_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_insert_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_pnb_enviasms:
+    image: aec.cti.brokerura_pnb_enviasms:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_enviasms
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+
+  brokerura_pnb_selecionacartaoconta:
+    image: aec.cti.brokerura_pnb_selecionacartaoconta:prod08
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_selecionacartaoconta
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_pnb_desbloqueiacartao:
+    image: aec.cti.brokerura_pnb_desbloqueiacartao:prod04
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_desbloqueiacartao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pnb_selecionacartaopordigitos:
+    image: aec.cti.brokerura_pnb_selecionacartaopordigitos:prod08
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_selecionacartaopordigitos
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pnb_verificacpfws:
+    image: aec.cti.brokerura_pnb_verificacpfws:prod09
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pnb_verificacpfws
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_sac_fecha_ocorrencia:
+    image: aec.cti.brokerura_mrv_sac_fecha_ocorrencia:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_sac_fecha_ocorrencia 
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+
+  mrv_sac_verifica_boleto:
+    image: aec.cti.brokerura_mrv_sac_verifica_boleto:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_sac_verifica_boleto
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_sac_valida_cpf_abre_ocorrencia:
+    image: aec.cti.brokerura_mrv_sac_valida_cpf_abre_ocorrencia:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_sac_valida_cpf_abre_ocorrencia
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_sac_solicita_token_ws:
+    image: aec.cti.brokerura_mrv_sac_solicita_token_ws:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_sac_solicita_token_ws
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  mrv_sac_insert_navegacao:
+    image: aec.cti.brokerura_mrv_sac_insert_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_mrv_sac_insert_navegacao
+    extra_hosts:
+       - "graylog:192.168.82.26"
+    volumes:
+        - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pesquisa_satisfacao_localiza:
+    image: aec.cti.brokerpesquisasatisfacaolocaliza:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pesquisa_satisfacao_localiza
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_api_valida_cpf_sada:
+    image: aec.cti.brokerura_api_valida_cpf_sada:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: aec_cti_brokerura_api_valida_cpf_sada
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_valida_feriado_horario_sada:
+    image: aec.cti.brokerura_valida_feriado_horario_sada:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: aec_cti_brokerura_valida_feriado_horario_sada
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_insert_navegacao_sada:
+    image: aec.cti.brokerura_insert_navegacao_sada:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_insert_navegacao_sada
+    extra_hosts:
+      - "graylog:192.168.82.26"    
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerura_pesquisa_satisfacao_ole:
+    image: urapesquisasatisfacaoole:Prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerura_pesquisa_satisfacao_ole
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  master_cabo_salva_navegacao:
+    image: master_cabo_salva_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: master_cabo_salva_navegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+            
+  localizasalvanavegacao:
+    image: localiza_salva_navegacao:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: localizasalvanavegacao
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  insert_navegacao_localiza:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_navegacao_localiza:prod02
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: insertnavegacaolocaliza
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  registradoreventos:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/registradoreventos:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: registradoreventos
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/root/eventos/eventos_chamadas/:/eventos_chamadas/"
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  insertpesquisazurich:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/insertpesquisazurich:prod06
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: insertpesquisazurich
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  registraenviosms:
+    image: aec.cti.brokerura_insert_dados_sms_zurich:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: registraenviosms
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerenviasms:
+    image: aec.cti.brokerenviasms:prod01
+    hostname: brokerenviasms
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+
+  enviosms:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/enviosms:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: enviosms
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  brokerformataAudio:
+    image: aec.cti.brokerformataaudio:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerformataAudio
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip  
+
+  converteuuidoasterisk :
+    image: aec.cti.brokerconverteuuidoasterisk:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokerconverteuuidoasterisk
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip       
+      
+  formataaudio:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/formataaudio:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: formataaudio
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  insertretencaosantanderzurich:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_retencaosantander_zurich:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: insertretencaosantanderzurich
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  validaprotocoloouvidoria:
+    image:  brokerura_valida_protocolo_ouvidoria_zurich:prod04
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: validaprotocoloouvidoria
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  validacpfcnpj:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/validacpfcnpj:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: validacpfcnpj
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  zews:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/zews:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: zews
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  consultacorretor:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/consultacorretor:prod04
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: consultacorretor
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  insertnavegacaozurich:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_navegacao_zurich:prod12
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: insertnavegacaozurich
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+
+  consultaprotocoloplusoft:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/consulta_protocolo_plusoft:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: consultaprotocoloplusoft
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip
+      
+  brokerura_cancelamentozurich:
+    image: aec.cti.brokerura.cancelamentozurich:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: cancelamentozurich
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s      
+
+  brokernumerorandomico:
+    image: aec.cti.brokernumerorandomico:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: brokernumerorandomico
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip      
+      
+  verifica_primo:
+    image: aec.cti.brokerverificanumeroprimo:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: verifica_primo
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - uravoip 
+
+  uravoip:
+    image: uravoip:prod21r01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: uravoip
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    ports:
+     - "4573:4573"
+    deploy:
+      mode: global
+#     replicas: 3
+#      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+    depends_on:
+      - redis
+      - asterisk
+
+  uravoip_cpqd:
+    image: uravoipcpqd:v4
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: uravoip
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+    - "/etc/localtime:/etc/localtime:ro"
+    - /root/uravoip/nomeServidor.txt:/root/uravoip/nomeServidor.txt
+    environment:
+    - driverDB=com.microsoft.sqlserver.jdbc.SQLServerDriver
+    - urlDB=jdbc:sqlserver://192.168.160.3\INST_CL_1;databaseName=URA_VOIP
+    #192.168.160.3 => PARTENON-CL-SQL
+    - usernameDB=ura_voip_pass
+    - passwordDB=FSWZKNP2QA
+    - dialectDB=org.hibernate.dialect.SQLServerDialect
+    - nomeServidorMensagensRedis=redis
+    - nomeServidorCacheRedis=cache_uravoip
+    - pathArquivoNomeServidor=/root/uravoip/nomeServidor.txt
+    networks:
+      - rede_stack_ura
+    ports:
+     - "4574:4574"
+    deploy:
+      mode: global
+#      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+
+      
+  editor_redis:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/editor_redis:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: editor_redis
+    volumes:
+      - "/root/redis/data/:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    ports:
+     - "6379:6379"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+
+  redis:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/redis:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: redis
+    volumes:
+      - "/root/redis/data/:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+
+  replicador_redis:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/redis:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: replicador_redis
+    volumes:
+      - "/root/redis/data/:/data"
+      - "/root/redis/conf/:/usr/local/etc/redis"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      mode: global
+      
+  cache_uravoip:
+    image: redis:latest
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: cache_uravoip
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+
+  ui_cache_uravoip:
+    hostname: ui_cache_uravoip
+    image: ui_cache_uravoip:v1
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    restart: always
+    networks:
+      - rede_stack_ura
+    ports:
+      - "8081:80"
+    environment:
+      - REDIS_1_HOST=cache_uravoip
+      - REDIS_1_NAME=Cache_URAVOIP
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s      
+
+  opensips:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/opensips:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: opensips
+    volumes:
+      - "/root/opensips/config/:/usr/local/etc/opensips/"
+    networks:
+      - outside
+    deploy:
+      mode: global
+
+  asterisk:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/image_asterisk:prod01
+    #image: aec.cti.asterisk.cpqd:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    volumes:
+      - "/etc/hosts:/etc/hosts:ro"
+      - "/root/asterisk/:/etc/asterisk/"
+      - "/root/sounds/:/var/lib/asterisk/sounds/en/"
+      - "/etc/localtime:/etc/localtime:ro"   
+    networks:
+      - outside
+    deploy:
+      mode: global
+      
+  coletoreventos:
+    image: registry.gitlab.com/aec-cti/aec.cti.urasipxml/coletoreventos:prod01
+    logging:
+      driver: "json-file"
+      options:
+         max-file: 1
+         max-size: 10m
+    hostname: coletoreventos
+    extra_hosts:
+      - "graylog:192.168.82.26"
+    volumes:
+      - "/root/eventos/eventos_chamadas/:/eventos_chamadas/"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - rede_stack_ura
+    deploy:
+      mode: global
+      
+      
+ 
+networks:
+  rede_stack_ura:
+     ipam:
+      config:
+        - subnet: 172.16.3.0/24
+  outside:
+    external:
+      name: "host"

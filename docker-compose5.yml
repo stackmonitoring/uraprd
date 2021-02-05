@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  brokerura_api_valida_cpf_sada:
+    image: aec.cti.brokerura_api_valida_cpf_sada:prod01
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 1
+        max-size: 10m
+  hostname: aec_cti_brokerura_api_valida_cpf_sada
+  extra_hosts:
+    - "graylog:192.168.82.26"
+  volumes:
+  - "/etc/localtime:/etc/localtime:ro"
+  networks:
+    - rede_stack_ura
+  deploy:
+    replicas: 1
+    update_config:
+      parallelism: 2
+      delay: 10s
+  depends_on:
+    - redis
+    - uravoip
+
+networks:
+  rede_stack_ura:
+     ipam:
+      config:
+        - subnet: 172.16.3.0/24
