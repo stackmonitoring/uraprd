@@ -1,0 +1,85 @@
+ID             NAME                                                              MODE         REPLICAS   IMAGE                                                                                  PORTS
+d8ni4m3l38go   portainer-agent_agent                                             global       3/3        portainer/agent:latest                                                                 
+ra6bhng35dfd   portainer_agent                                                   global       2/2        portainer/agent:latest                                                                 
+od0hd5jmm7zt   portainer_edge_agent                                              global       3/3        portainer/agent:latest                                                                 
+pzr40tnyti8v   portainer_portainer                                               replicated   1/1        portainer/portainer-ce:latest                                                          *:8000->8000/tcp, *:9000->9000/tcp
+cbvfnut516ne   stack_ura_teste_asterisk                                          global       3/3        registry.gitlab.com/aec-cti/aec.cti.urasipxml/image_asterisk:prod01                    
+l5fnj3pjfh6v   stack_ura_teste_broker_api_tivea_ura_pnb_cob                      replicated   1/1        aec.cti.broker_api_tivea_ura_pnb_cob:prod02                                            
+u0ywlz74q03p   stack_ura_teste_brokerenviasms                                    replicated   1/1        aec.cti.brokerenviasms:prod01                                                          
+pv642vnetvqb   stack_ura_teste_brokerformataAudio                                replicated   1/1        aec.cti.brokerformataaudio:prod01                                                      
+mk7ehopqaweu   stack_ura_teste_brokernumerorandomico                             replicated   1/1        aec.cti.brokernumerorandomico:prod01                                                   
+44wbbfzhfcr9   stack_ura_teste_brokerura_api_valida_cpf_sada                     replicated   1/1        aec.cti.brokerura_api_valida_cpf_sada:prod01                                           
+nzvub59uel4q   stack_ura_teste_brokerura_cancelamentozurich                      replicated   1/1        aec.cti.brokerura.cancelamentozurich:prod01                                            
+srkq2e532ivb   stack_ura_teste_brokerura_insert_navegacao_sada                   replicated   1/1        aec.cti.brokerura_insert_navegacao_sada:prod01                                         
+uxdk6zcb1x6v   stack_ura_teste_brokerura_localiza_insert_navegacao               replicated   1/1        aec.cti.brokerura_localiza_insert_navegacao:prod02                                     
+pzex1hlblkjo   stack_ura_teste_brokerura_oi_insert_escob                         replicated   1/1        aec.cti.brokerura_oi_insert_escob:prod01                                               
+4d0lmbmdh2x4   stack_ura_teste_brokerura_pesquisa_satisfacao_localiza            replicated   1/1        aec.cti.brokerpesquisasatisfacaolocaliza:prod02                                        
+rcgnc6w5ia28   stack_ura_teste_brokerura_pesquisa_satisfacao_ole                 replicated   1/1        urapesquisasatisfacaoole:Prod01                                                        
+qgrhlwssfh57   stack_ura_teste_brokerura_pnb_contadigital                        replicated   1/1        aec.cti.brokerura_pnb_contadigital:prod01                                              
+jzfvgdu6ltvy   stack_ura_teste_brokerura_pnb_desbloqueiacartao                   replicated   1/1        aec.cti.brokerura_pnb_desbloqueiacartao:prod04                                         
+zleyjmzwa6cw   stack_ura_teste_brokerura_pnb_enviasms                            replicated   1/1        aec.cti.brokerura_pnb_enviasms:prod02                                                  
+hvy1umwiqu91   stack_ura_teste_brokerura_pnb_insert_navegacao_cob                replicated   1/1        aec.cti.brokerura_pnb_insert_navegacao_cob:prod01                                      
+u7kz4mlf0xuh   stack_ura_teste_brokerura_pnb_insert_navegacao_conta_digital      replicated   1/1        aec.cti.brokerura_pnb_insert_navegacao_conta_digital:prod01                            
+pjw15exxfqc0   stack_ura_teste_brokerura_pnb_selecionacartaoconta                replicated   1/1        aec.cti.brokerura_pnb_selecionacartaoconta:prod08                                      
+rk0g74p1sexf   stack_ura_teste_brokerura_pnb_selecionacartaopordigitos           replicated   1/1        aec.cti.brokerura_pnb_selecionacartaopordigitos:prod08                                 
+s4z9l9fnfz1s   stack_ura_teste_brokerura_pnb_verificacpfws                       replicated   1/1        aec.cti.brokerura_pnb_verificacpfws:prod09                                             
+jdfvoqna4utb   stack_ura_teste_brokerura_pnb_verificacpfws_cob                   replicated   1/1        aec.cti.brokerura_pnb_verificacpfws_cob:prod02                                         
+kmvigveupfjs   stack_ura_teste_brokerura_valida_feriado_horario_sada             replicated   1/1        aec.cti.brokerura_valida_feriado_horario_sada:prod01                                   
+r73yqxhvqdyk   stack_ura_teste_brokerura_zurich_edmil_insert                     replicated   1/1        aec.cti.brokerura_zurich_edmil_insert:prod01                                           
+v7rvha48hz29   stack_ura_teste_brokerura_zurich_tnps_insert_pesquisa             replicated   1/1        aec.cti.brokerura_zurich_tnps_insert_pesquisa:prod02                                   
+u91zvojxi4if   stack_ura_teste_brokeruraunicred_relacionament_insert_navegacao   replicated   1/1        aec.cti.brokerura_unicred_relacionamento_insert_navegacao:prod01                       
+qkom61lg4qyr   stack_ura_teste_brokervalidadigitoscomseparador                   replicated   1/1        aec.cti.brokervalidadigitoscomseparador:prod01                                         
+kagxhnsy1tal   stack_ura_teste_brokervalidanumerotelefonedigitado                replicated   1/1        aec.cti.brokervalidanumerotelefonedigitado:prod01                                      
+bqhazmxo43o5   stack_ura_teste_cache_uravoip                                     replicated   1/1        redis:latest                                                                           
+iv1qzj36wyz5   stack_ura_teste_caixa_api_fecha_protocolo                         replicated   1/1        aec.cti.brokerura_caixa_api_fecha_protocolo:prod02                                     
+lku9pgvunyme   stack_ura_teste_caixa_api_solicita_protocolo                      replicated   1/1        aec.cti.brokerura_caixa_api_solicita_protocolo:prod03                                  
+qvcj88nvihcj   stack_ura_teste_caixa_api_solicita_protocoloodonto                replicated   1/1        aec.cti.brokerura_caixa_api_solicita_protocoloodonto:prod02                            
+orzgh4uslils   stack_ura_teste_caixa_insert_navegacao                            replicated   1/1        aec.cti.brokerura_caixa_insert_navegacao:prod02                                        
+mg7fsua1ilsm   stack_ura_teste_caixa_insert_pesquisa                             replicated   1/1        aec.cti.brokerura_caixa_insert_pesquisa:prod02                                         
+rm57l5ydh62i   stack_ura_teste_coletoreventos                                    global       3/3        registry.gitlab.com/aec-cti/aec.cti.urasipxml/coletoreventos:prod01                    
+hysn49nb2fyi   stack_ura_teste_consultacorretor                                  replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/consultacorretor:prod04                  
+r14z92nfvugu   stack_ura_teste_consultaprotocoloplusoft                          replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/consulta_protocolo_plusoft:prod01        
+gymgn77a4ata   stack_ura_teste_converteuuidoasterisk                             replicated   1/1        aec.cti.brokerconverteuuidoasterisk:prod01                                             
+xmh7oh455upt   stack_ura_teste_editor_redis                                      replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/editor_redis:prod01                      *:6379->6379/tcp
+ndsspl4oyb9a   stack_ura_teste_enviosms                                          replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/enviosms:prod01                          
+buemzje1jwi6   stack_ura_teste_formataaudio                                      replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/formataaudio:prod01                      
+t1fsstax2m1j   stack_ura_teste_insert_navegacao_localiza                         replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_navegacao_localiza:prod02         
+jk0nhtnz4pcw   stack_ura_teste_insert_navegacao_ole_cob                          replicated   1/1        aec.cti.brokerura_insert_navegacao_ole_cob:prod01                                      
+8n5cydeqbzf6   stack_ura_teste_insertnavegacaozurich                             replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_navegacao_zurich:prod12           
+2e00z7r43uro   stack_ura_teste_insertpesquisazurich                              replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/insertpesquisazurich:prod06              
+koq53b85oq4f   stack_ura_teste_insertretencaosantanderzurich                     replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/insert_retencaosantander_zurich:prod01   
+s5pfsrhv2mep   stack_ura_teste_localizasalvanavegacao                            replicated   1/1        localiza_salva_navegacao:prod01                                                        
+xbxjt2qmbmgd   stack_ura_teste_master_cabo_salva_navegacao                       replicated   1/1        master_cabo_salva_navegacao:prod01                                                     
+xff0ypxerihl   stack_ura_teste_mrv_sac_fecha_ocorrencia                          replicated   1/1        aec.cti.brokerura_mrv_sac_fecha_ocorrencia:prod01                                      
+6l7ghucf5cmi   stack_ura_teste_mrv_sac_insert_navegacao                          replicated   1/1        aec.cti.brokerura_mrv_sac_insert_navegacao:prod01                                      
+zdl0r45r4saa   stack_ura_teste_mrv_sac_solicita_token_ws                         replicated   1/1        aec.cti.brokerura_mrv_sac_solicita_token_ws:prod01                                     
+wqxm92kw2qtq   stack_ura_teste_mrv_sac_valida_cpf_abre_ocorrencia                replicated   1/1        aec.cti.brokerura_mrv_sac_valida_cpf_abre_ocorrencia:prod01                            
+ozycubdvyldi   stack_ura_teste_mrv_sac_verifica_boleto                           replicated   1/1        aec.cti.brokerura_mrv_sac_verifica_boleto:prod01                                       
+l90aotxon8ec   stack_ura_teste_mrv_urba_consulta_api_ocorrencias                 replicated   1/1        aec.cti.brokerura_mrv_urba_consulta_api_ocorrencias:prod01                             
+mfnea3jvmh2j   stack_ura_teste_mrv_urba_insert_navegacao                         replicated   1/1        aec.cti.brokerura_mrv_urba_insert_navegacao:prod01                                     
+2pb1ji1mhrmv   stack_ura_teste_ole_cob_verifica_cobradora_cpf                    replicated   1/1        aec.cti.brokerura_ole_cob_verifica_cobradora_cpf:prod01                                
+nphl38ymiy4w   stack_ura_teste_opensips                                          global       3/3        registry.gitlab.com/aec-cti/aec.cti.urasipxml/opensips:prod01                          
+9h1uqxbdonvk   stack_ura_teste_pnb_insert_navegacao                              replicated   1/1        aec.cti.brokerura_pnb_insert_navegacao:prod01                                          
+sueeb6a5i1jz   stack_ura_teste_redis                                             replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/redis:prod01                             
+i3q53v0ua7wd   stack_ura_teste_registradoreventos                                replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/registradoreventos:prod01                
+nvcajzkr6f6o   stack_ura_teste_registraenviosms                                  replicated   1/1        aec.cti.brokerura_insert_dados_sms_zurich:prod01                                       
+qppk0mmqsw6g   stack_ura_teste_replicador_redis                                  global       3/3        registry.gitlab.com/aec-cti/aec.cti.urasipxml/redis:prod01                             
+n80jyrbpfg7p   stack_ura_teste_stix_api_criaincidente                            replicated   1/1        aec.cti.brokerura_stix_api_criaincidente:prod01                                        
+proew7t276t8   stack_ura_teste_stix_api_validacpf                                replicated   1/1        aec.cti.brokerura_stix_api_validacpf:prod01                                            
+5id5bx6k3ye6   stack_ura_teste_stix_insert_navegacao                             replicated   1/1        aec.cti.brokerura_stix_insert_navegacao:prod01                                         
+mmsyptpyjelo   stack_ura_teste_stix_insert_pesquisa                              replicated   1/1        aec.cti.brokerura_stix_insert_pesquisa:prod01                                          
+0qcomyjszbma   stack_ura_teste_ui_cache_uravoip                                  replicated   1/1        ui_cache_uravoip:v1                                                                    *:8081->80/tcp
+whrp88fonvs2   stack_ura_teste_unicred_api_validacartao                          replicated   1/1        aec.cti.brokerura_unicred_api_validacartao:prod01                                      
+32w7e6it67yd   stack_ura_teste_unicred_api_validasenha                           replicated   1/1        aec.cti.brokerura_unicred_api_validasenha:prod01                                       
+l2wey1g1ukka   stack_ura_teste_unicred_insert_navegacao                          replicated   1/1        aec.cti.brokerura_unicred_insert_navegacao:prod01                                      
+1szmt9u8bjys   stack_ura_teste_unicred_insert_pesquisa                           replicated   1/1        aec.cti.brokerura_unicred_insert_pesquisa:prod01                                       
+tohooivsoxcy   stack_ura_teste_uravoip                                           global       3/3        uravoip:prod21r01                                                                      *:4573->4573/tcp
+t7h56fipf1i4   stack_ura_teste_uravoip_cpqd                                      global       3/3        uravoipcpqd:v4                                                                         *:4574->4574/tcp
+pkvwrrcjivdo   stack_ura_teste_validacpfcnpj                                     replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/validacpfcnpj:prod01                     
+l0lgslwx9w0y   stack_ura_teste_validaprotocoloouvidoria                          replicated   1/1        brokerura_valida_protocolo_ouvidoria_zurich:prod04                                     
+silfebeeipd2   stack_ura_teste_verifica_primo                                    replicated   1/1        aec.cti.brokerverificanumeroprimo:prod01                                               
+y4gfwzw4ukyu   stack_ura_teste_zews                                              replicated   1/1        registry.gitlab.com/aec-cti/aec.cti.urasipxml/zews:prod01                              
+of0k4lyk2ym7   swarmpit_agent                                                    global       3/3        swarmpit/agent:latest                                                                  
+ps2ea4dwg34w   swarmpit_app                                                      replicated   1/1        swarmpit/swarmpit:latest                                                               *:888->8080/tcp
+k0z42zdgz683   swarmpit_db                                                       replicated   1/1        couchdb:2.3.0                                                                          
+so2qzmhe5fzs   swarmpit_influxdb                                                 replicated   1/1        influxdb:1.7                                                                           
